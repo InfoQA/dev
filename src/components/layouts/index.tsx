@@ -8,7 +8,7 @@ export default function LayoutDefault(props: LayoutDefaultProps) {
     const {children} = props;
 
     return (
-        <div className={'min-h-screen bg-linear-to-br from-[#F3f4f3]/30 to-[#F3f4f3]/30'}>
+        <div className={'h-screen overflow-hidden bg-secondary/30'}>
             {children}
         </div>
     )

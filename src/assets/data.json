@@ -1,0 +1,7 @@
+{
+  "status": "success",
+  "message": "Message sent successfully",
+  "data": {
+    "reply": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus ut risus tincidunt congue."
+  }
+}
