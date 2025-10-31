@@ -1,11 +1,13 @@
-import { Button } from '@/components/ui/button';
+import LayoutDefault from "@/components/layouts";
+import Sidebar from "@/components/shared/Sidebar";
 
 function App() {
-  return (
-    <>
-      <h1 className='text-2xl font-bold'>Hello React!</h1>
-      <Button variant={'outline'}>Click Me</Button>
-    </>
+  return(
+      <LayoutDefault>
+       <Sidebar/>
+
+
+      </LayoutDefault>
   );
 }
 
