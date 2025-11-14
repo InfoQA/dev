@@ -189,5 +189,6 @@
 @layer utilities {
     .card-content {
         scrollbar-color: var(--color-border) transparent;
+        scrollbar-width: thin;
     }
 }
