@@ -1,7 +1,7 @@
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {ArrowUp} from "lucide-react";
 import {useEffect, useRef} from "react";
+import {ArrowUp} from "lucide-react";
 
 export default function InputBar() {
 
@@ -21,22 +21,22 @@ export default function InputBar() {
     return (
         <div className={'absolute w-full flex justify-center bottom-5'}>
             <div
-                className="shadow-lg w-1/2 flex flex-row justify-center items-end gap-2 bg-primary rounded-4xl p-2">
+                className="shadow-lg w-3/4 lg:w-1/2 flex flex-row justify-center items-end gap-2 bg-primary rounded-4xl p-2">
                 <Textarea
                     autoFocus
                     ref={textareaRef}
                     rows={1}
                     onInput={handleInput}
-                    placeholder="Ada yang ingin kamu tanyakan?"
+                    placeholder="Ada yang ingin ditanyakan?"
                     className="
-          bg-primary text-secondary resize-none overflow-hidden
-          border-none px-2 py-2
-          min-h-[40px] max-h-[200px]"
+          text-xs lg:text-sm min-h-[10px] bg-primary text-secondary resize-none overflow-hidden
+          border-none lg:px-2 lg:py-2
+          lg:min-h-[40px] lg:max-h-[200px]"
                 />
                 <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-full "
+                    className="size-8 lg:size-9 rounded-full"
                 >
                     <ArrowUp/>
                 </Button>

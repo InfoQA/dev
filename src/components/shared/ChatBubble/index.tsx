@@ -11,7 +11,7 @@ export default function ChatBubble(props: ChatBubbleProps) {
 
     return (
         <Card
-            className={`shadow-none border-none bg-primary/3 max-w-[50%] ${isMe && 'ml-auto'}`}>
+            className={`shadow-none border-none bg-primary/3 lg:max-w-[50%] ${isMe && 'ml-auto'}`}>
             <CardContent>
                 <p className={'text-sm'}>
                     {message}
