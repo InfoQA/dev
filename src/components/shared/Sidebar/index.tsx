@@ -28,7 +28,7 @@ export default function Sidebar() {
                                     <DropdownMenuItem key={index}>
                                         <div className={'flex gap-2 items-center '}>
                                             {item.icon}
-                                            <span className={'text-xs'}>{item.label}</span>
+                                            <span className={'text-xs md:text-sm'}>{item.label}</span>
                                         </div>
                                     </DropdownMenuItem>
                                 ))}
