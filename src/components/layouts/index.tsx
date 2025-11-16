@@ -1,15 +1,13 @@
 import * as React from "react";
 
 type LayoutDefaultProps = {
-    children: React.ReactNode;
-}
+  children: React.ReactNode;
+};
 
 export default function LayoutDefault(props: LayoutDefaultProps) {
-    const {children} = props;
+  const { children } = props;
 
-    return (
-        <div className={'h-screen overflow-hidden bg-secondary/30'}>
-            {children}
-        </div>
-    )
+  return (
+    <div className={"h-screen overflow-hidden bg-secondary/30"}>{children}</div>
+  );
 }

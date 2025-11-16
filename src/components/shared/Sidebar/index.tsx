@@ -9,6 +9,9 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu.tsx";
 import listDropDown from "./list-drop-down.tsx";
+import Modal from "@/components/shared/Modal";
+import {DialogDescription, DialogHeader, DialogTitle} from "@/components/ui/dialog.tsx";
+import INFO_APP from "@/components/constants";
 
 export default function Sidebar() {
     const isMobile = useIsMobile()
@@ -24,14 +27,54 @@ export default function Sidebar() {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className={'w-48'} align={'start'}>
-                                {listDropDown.map((item, index) => (
-                                    <DropdownMenuItem key={index}>
-                                        <div className={'flex gap-2 items-center '}>
-                                            {item.icon}
-                                            <span className={'text-xs md:text-sm'}>{item.label}</span>
-                                        </div>
-                                    </DropdownMenuItem>
-                                ))}
+                                {listDropDown.map((item, index) => {
+                                    const trigger = (
+                                        <DropdownMenuItem
+                                            key={index}
+                                            onSelect={(e) => e.preventDefault()}
+                                            className="w-full"
+                                        >
+                                            <div className="flex gap-2 items-center w-full">
+                                                {item.icon}
+                                                <span>{item.label}</span>
+                                            </div>
+                                        </DropdownMenuItem>
+                                    );
+
+                                    if (item.dialog === "new-chat") {
+                                        return (
+                                            <Modal
+                                                trigger={trigger}
+                                                content={
+                                                    <h1>
+                                                        Test
+                                                    </h1>
+                                                }
+                                            />
+                                        );
+                                    }
+
+                                    if (item.dialog === "about") {
+                                        return (
+                                            <Modal
+                                                className={'p-5'}
+                                                trigger={trigger}
+                                                content={
+                                                    <DialogHeader>
+                                                        <DialogTitle className={'text-start text-sm font-semibold'}>
+                                                            {INFO_APP.NAME}
+                                                        </DialogTitle>
+                                                        <DialogDescription className={'text-start text-xs mt-2'}>
+                                                            {INFO_APP.DESCRIPTION}
+                                                        </DialogDescription>
+                                                    </DialogHeader>
+                                                }
+                                            />
+                                        );
+                                    }
+
+                                    return trigger;
+                                })}
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div> :
