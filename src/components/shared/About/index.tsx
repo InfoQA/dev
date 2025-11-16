@@ -1,8 +1,8 @@
 import INFO_APP from "@/components/constants";
 import {Button} from "@/components/ui/button.tsx";
 import useIsMobile from "@/hooks/useIsMobile.ts";
-import {DialogDescription, DialogHeader, DialogTitle,} from "@/components/ui/dialog.tsx";
 import Modal from "@/components/shared/Modal";
+import {DialogAbout} from "@/components/shared/About/DialogAbout.tsx";
 
 export default function About() {
     const isMobile = useIsMobile();
@@ -30,14 +30,7 @@ export default function About() {
                             </Button>
                         }
                         content={
-                            <DialogHeader>
-                                <DialogTitle className={"text-sm font-semibold"}>
-                                    {INFO_APP.NAME}
-                                </DialogTitle>
-                                <DialogDescription className={"text-xs mt-2"}>
-                                    {INFO_APP.DESCRIPTION}
-                                </DialogDescription>
-                            </DialogHeader>
+                            <DialogAbout/>
                         }
                     />
                 </div>

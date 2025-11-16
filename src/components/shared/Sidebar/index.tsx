@@ -10,8 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu.tsx";
 import listDropDown from "./list-drop-down.tsx";
 import Modal from "@/components/shared/Modal";
-import {DialogDescription, DialogHeader, DialogTitle} from "@/components/ui/dialog.tsx";
-import INFO_APP from "@/components/constants";
+import {DialogAbout} from "@/components/shared/About/DialogAbout.tsx";
 
 export default function Sidebar() {
     const isMobile = useIsMobile()
@@ -60,14 +59,7 @@ export default function Sidebar() {
                                                 className={'p-5'}
                                                 trigger={trigger}
                                                 content={
-                                                    <DialogHeader>
-                                                        <DialogTitle className={'text-start text-sm font-semibold'}>
-                                                            {INFO_APP.NAME}
-                                                        </DialogTitle>
-                                                        <DialogDescription className={'text-start text-xs mt-2'}>
-                                                            {INFO_APP.DESCRIPTION}
-                                                        </DialogDescription>
-                                                    </DialogHeader>
+                                                    <DialogAbout/>
                                                 }
                                             />
                                         );

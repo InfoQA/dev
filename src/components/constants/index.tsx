@@ -1,7 +1,8 @@
 const INFO_APP = {
     NAME: import.meta.env.VITE_APP_NAME,
     VERSION: import.meta.env.VITE_APP_VERSION,
-    DESCRIPTION: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    DESCRIPTION: `InfoQA adalah aplikasi web yang dibuat untuk membantu mahasiswa Universitas Kristen Maranatha, khususnya Teknik Informatika, mendapatkan informasi kampus dengan cepat. Banyak mahasiswa malas membaca panduan resmi dan lebih memilih bertanya ke teman atau kakak tingkat, sehingga InfoQA hadir sebagai pusat informasi yang ringkas dan mudah diakses.
+Versi 1 masih dalam tahap pengembangan, jadi beberapa fitur mungkin belum sempurna, namun tim InfoQA terus berupaya menyempurnakannya.`
 };
 
 export default INFO_APP;
