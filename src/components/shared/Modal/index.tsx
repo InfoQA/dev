@@ -1,9 +1,5 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog.tsx";
-import * as React from "react";
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog.tsx';
+import * as React from 'react';
 
 type ModalProps = {
   trigger: React.ReactNode;
@@ -17,9 +13,7 @@ export default function Modal(props: ModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className={`p-8 lg:max-w-xl ${className}`}>
-        {content}
-      </DialogContent>
+      <DialogContent className={`${className}`}>{content}</DialogContent>
     </Dialog>
   );
 }
