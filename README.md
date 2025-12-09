@@ -1,6 +1,6 @@
-# InfoQA Front-end
+# InfoQA Front-end 
 
-Front-end repository untuk InfoQA - aplikasi tanya jawab informatif yang memudahkan pengguna mendapatkan informasi berkualitas.
+Front-end repository untuk InfoQA - aplikasi tanya jawab informatif yang memudahkan pengguna mendapatkan informasi berkualitas. **(on development)**
 
 ## Tech Stack
 
