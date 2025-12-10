@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -36,9 +36,9 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.4091 0 0);
   --sidebar-ring: oklch(0.9551 0 0);
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Lora", serif;
-  --font-mono: "Fira Code", monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-mono: 'Fira Code', monospace;
   --radius: 0.75rem;
   --shadow-x: 0px;
   --shadow-y: 4px;
@@ -48,16 +48,11 @@
   --shadow-color: #000000;
   --shadow-2xs: 0px 4px 12px 0px hsl(0 0% 0% / 0.03);
   --shadow-xs: 0px 4px 12px 0px hsl(0 0% 0% / 0.03);
-  --shadow-sm:
-    0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow:
-    0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow-md:
-    0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
-  --shadow-lg:
-    0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
-  --shadow-xl:
-    0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow: 0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow-md: 0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg: 0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xl: 0px 4px 12px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
   --shadow-2xl: 0px 4px 12px 0px hsl(0 0% 0% / 0.13);
   --tracking-normal: normal;
   --spacing: 0.25rem;
@@ -96,9 +91,9 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.4091 0 0);
   --sidebar-ring: oklch(0.9551 0 0);
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Lora", serif;
-  --font-mono: "Fira Code", monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-mono: 'Fira Code', monospace;
   --radius: 0.75rem;
   --shadow-x: 0px;
   --shadow-y: 8px;
@@ -108,16 +103,11 @@
   --shadow-color: #000000;
   --shadow-2xs: 0px 8px 24px 0px hsl(0 0% 0% / 0.2);
   --shadow-xs: 0px 8px 24px 0px hsl(0 0% 0% / 0.2);
-  --shadow-sm:
-    0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
-  --shadow:
-    0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
-  --shadow-md:
-    0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 2px 4px -1px hsl(0 0% 0% / 0.4);
-  --shadow-lg:
-    0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 4px 6px -1px hsl(0 0% 0% / 0.4);
-  --shadow-xl:
-    0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 8px 10px -1px hsl(0 0% 0% / 0.4);
+  --shadow-sm: 0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow: 0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow-md: 0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 2px 4px -1px hsl(0 0% 0% / 0.4);
+  --shadow-lg: 0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 4px 6px -1px hsl(0 0% 0% / 0.4);
+  --shadow-xl: 0px 8px 24px 0px hsl(0 0% 0% / 0.4), 0px 8px 10px -1px hsl(0 0% 0% / 0.4);
   --shadow-2xl: 0px 8px 24px 0px hsl(0 0% 0% / 1);
 }
 
@@ -188,7 +178,6 @@
 
   body {
     @apply bg-background text-foreground;
-    letter-spacing: var(--tracking-normal);
   }
 
   button {

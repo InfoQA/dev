@@ -2,7 +2,15 @@ import { Button } from '@/components/ui/button';
 import { DialogClose, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { DialogDescription } from '@radix-ui/react-dialog';
 
-export default function NewChat() {
+type NewChatProps = {
+  onConfirm?: () => void;
+};
+
+export default function NewChat({ onConfirm }: NewChatProps) {
+  const handleConfirm = () => {
+    onConfirm?.();
+  };
+
   return (
     <DialogHeader className='text-start'>
       <DialogTitle className='font-semibold text-base'>New Chat</DialogTitle>
@@ -13,7 +21,9 @@ export default function NewChat() {
             Cancel
           </Button>
         </DialogClose>
-        <Button className='rounded-full px-7'>Yes</Button>
+        <DialogClose asChild>
+          <Button className='rounded-full px-7' onClick={handleConfirm}>Yes</Button>
+        </DialogClose>
       </DialogFooter>
     </DialogHeader>
   );
