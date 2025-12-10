@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export type Message = {
   id: string;
@@ -15,6 +15,7 @@ const DEFAULT_MESSAGE = `Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 export default function useChatMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const addMessage = (message: string, isMe: boolean = true) => {
     const newMessage: Message = {
@@ -29,10 +30,23 @@ export default function useChatMessages() {
     setMessages([]);
   };
 
+  // Simulasi fetch data dari API/JSON
+  useEffect(() => {
+    const fetchMessages = async () => {
+      setIsLoading(true);
+      // Simulasi delay loading (1.5 detik)
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsLoading(false);
+    };
+
+    fetchMessages();
+  }, []);
+
   return {
     messages,
     addMessage,
     clearMessages,
     defaultMessage: DEFAULT_MESSAGE,
+    isLoading,
   };
 }

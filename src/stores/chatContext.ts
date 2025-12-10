@@ -6,6 +6,7 @@ export type ChatContextType = {
   addMessage: (message: string, isMe?: boolean) => void;
   clearMessages: () => void;
   defaultMessage: string;
+  isLoading: boolean;
 };
 
 export const ChatContext = createContext<ChatContextType | undefined>(undefined);
