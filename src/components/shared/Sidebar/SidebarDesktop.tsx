@@ -1,7 +1,7 @@
-import { Card, CardContent } from '@/components/ui/card';
-import Modal from '../Modal';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { PlusIcon, Sun } from 'lucide-react';
+import Modal from '../Modal';
 import NewChat from './NewChat';
 
 export default function SiderbarDesktop() {

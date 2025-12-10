@@ -7,6 +7,7 @@ import listDropDown from './list-drop-down';
 import NewChat from './NewChat';
 
 export default function SidebarMobile() {
+
   return (
     <div className={'absolute inset-0 left-2 top-2'}>
       <DropdownMenu>

@@ -5,23 +5,35 @@ import Modal from '@/components/shared/Modal';
 import Sidebar from '@/components/shared/Sidebar';
 import NewChat from '@/components/shared/Sidebar/NewChat';
 import useRefreshModal from '@/hooks/useRefreshModal';
+import { useEffect } from 'react';
+import { toast, Toaster } from 'sonner';
+import { ChatProvider } from './stores/chatProvider';
 
-function App() {
-  const { showModal, closeModal, setShowModal } = useRefreshModal();
+function AppContent() {
+  const { showModal, setShowModal } = useRefreshModal();
 
-  const handleNewChatConfirm = () => {
-    closeModal();
-  };
+  useEffect(() => {
+    toast.info('Hai selamat datang di InfoQA', {
+      description: 'Sistem Panduan Teknik Informatika 2024',
+    });
+  }, []);
 
   return (
     <LayoutDefault>
+      <Toaster position='top-center' />
       <Sidebar />
       <About />
       <Chat />
-
-      {/* Modal untuk New Chat saat refresh */}
-      <Modal open={showModal} onOpenChange={setShowModal} content={<NewChat onConfirm={handleNewChatConfirm} />} />
+      <Modal open={showModal} onOpenChange={setShowModal} content={<NewChat />} />
     </LayoutDefault>
+  );
+}
+
+function App() {
+  return (
+    <ChatProvider>
+      <AppContent />
+    </ChatProvider>
   );
 }
 

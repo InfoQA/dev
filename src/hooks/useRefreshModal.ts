@@ -4,13 +4,20 @@ export default function useRefreshModal() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Detect refresh: cek apakah ada navigation entry dengan type reload
-    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const isRefreshShortcut = e.key === 'F5' || ((e.ctrlKey || e.metaKey) && e.key === 'r');
 
-    if (navigationEntry && navigationEntry.type === 'reload') {
-      // Page di-refresh, tampilkan modal
-      setShowModal(true);
-    }
+      if (isRefreshShortcut) {
+        e.preventDefault();
+        setShowModal(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const closeModal = () => setShowModal(false);

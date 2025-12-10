@@ -1,14 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { DialogClose, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useChatContext } from '@/hooks/useChatContext';
 import { DialogDescription } from '@radix-ui/react-dialog';
 
-type NewChatProps = {
-  onConfirm?: () => void;
-};
+export default function NewChat() {
+  const { clearMessages } = useChatContext();
 
-export default function NewChat({ onConfirm }: NewChatProps) {
   const handleConfirm = () => {
-    onConfirm?.();
+    clearMessages();
   };
 
   return (
@@ -22,7 +21,9 @@ export default function NewChat({ onConfirm }: NewChatProps) {
           </Button>
         </DialogClose>
         <DialogClose asChild>
-          <Button className='rounded-full px-7' onClick={handleConfirm}>Yes</Button>
+          <Button className='rounded-full px-7' onClick={handleConfirm}>
+            Yes
+          </Button>
         </DialogClose>
       </DialogFooter>
     </DialogHeader>
