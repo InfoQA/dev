@@ -30,11 +30,9 @@ export default function useChatMessages() {
     setMessages([]);
   };
 
-  // Simulasi fetch data dari API/JSON
   useEffect(() => {
     const fetchMessages = async () => {
       setIsLoading(true);
-      // Simulasi delay loading (1.5 detik)
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setIsLoading(false);
     };
