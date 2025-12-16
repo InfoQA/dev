@@ -6,12 +6,13 @@ export type Message = {
   isMe: boolean;
 };
 
-const DEFAULT_MESSAGE = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. 
+const DEFAULT_MESSAGE = `Halo, selamat datang di Chatbot Panduan Teknik Informatika.
+Silakan pilih menu berikut:
 
-1. Lorem Amet — Consectetur adipiscing elit.
-2. Dolor Sit — Sed do eiusmod tempor incididunt.
-3. Elit Viverra — Ut enim ad minim veniam.
-4. Tempor Magna — Duis aute irure dolor in reprehenderit.`;
+1. Informasi Kurikulum dan Mata Kuliah
+2. MBKM
+3. Informasi Umum
+`;
 
 export default function useChatMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
