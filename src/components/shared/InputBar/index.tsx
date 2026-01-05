@@ -1,4 +1,3 @@
-import dummyData from '@/assets/data.json';
 import { Button } from '@/components/ui/button.tsx';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { useChatContext } from '@/hooks/useChatContext';
@@ -8,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function InputBar() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [inputValue, setInputValue] = useState('');
-  const { addMessage } = useChatContext();
+  const { sendMessage, isSending } = useChatContext();
 
   const handleInput = () => {
     const el = textareaRef.current;
@@ -20,11 +19,7 @@ export default function InputBar() {
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
-    addMessage(inputValue, true);
-
-    setTimeout(() => {
-      addMessage(dummyData.data.reply, false);
-    }, 500);
+    sendMessage(inputValue);
 
     setInputValue('');
     if (textareaRef.current) {
@@ -54,6 +49,7 @@ export default function InputBar() {
           onChange={(e) => setInputValue(e.target.value)}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
+          disabled={isSending}
           placeholder='Ada yang ingin ditanyakan?'
           className='placeholder:text-secondary 
           text-xs lg:text-sm min-h-2.5 text-secondary resize-none overflow-hidden
@@ -61,7 +57,7 @@ export default function InputBar() {
           lg:min-h-10 lg:max-h-[200px] focus-visible:ring-0
           bg-primary dark:bg-transparent'
         />
-        <Button variant='outline' size='icon' className='size-8 lg:size-9 rounded-full dark:border dark:border-white/55 dark:bg-primary dark:text-white' onClick={handleSendMessage} disabled={!inputValue.trim()}>
+        <Button variant='outline' size='icon' className='size-8 lg:size-9 rounded-full dark:border dark:border-white/55 dark:bg-primary dark:text-white' onClick={handleSendMessage} disabled={isSending || !inputValue.trim()}>
           <ArrowUp />
         </Button>
       </div>

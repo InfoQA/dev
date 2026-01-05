@@ -1,4 +1,5 @@
-import { QueryClient } from "@tanstack/react-query";
+import { QueryClient } from '@tanstack/react-query';
+import { toast } from 'sonner';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -9,10 +10,7 @@ export const queryClient = new QueryClient({
       refetchOnReconnect: true, // refetch kalau koneksi balik lagi
       retry: (failureCount, error) => {
         // Jangan retry kalau error 4xx
-        if (
-          error?.message?.includes("404") ||
-          error?.message?.includes("400")
-        ) {
+        if (error?.message?.includes('404') || error?.message?.includes('400')) {
           return false;
         }
         return failureCount < 2; // cukup 2x retry, biar gak terlalu lama di chat
@@ -21,8 +19,9 @@ export const queryClient = new QueryClient({
     mutations: {
       retry: 0, // mutation (misal kirim pesan) sebaiknya tidak di-retry otomatis
       onError: (error) => {
-        console.error("Mutation error:", error);
-        alert("Terjadi kesalahan saat mengirim data.");
+        console.error('Mutation error:', error);
+        const description = error instanceof Error ? error.message : 'Terjadi kesalahan saat mengirim data.';
+        toast.error('Terjadi kesalahan', { description });
       },
     },
   },

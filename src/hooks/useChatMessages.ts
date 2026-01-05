@@ -1,4 +1,7 @@
+import { postChat } from '@/api/chat';
+import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 export type Message = {
   id: string;
@@ -18,6 +21,10 @@ export default function useChatMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const sendMessageMutation = useMutation({
+    mutationFn: (message: string) => postChat(message),
+  });
+
   const addMessage = (message: string, isMe: boolean = true) => {
     const newMessage: Message = {
       id: Date.now().toString(),
@@ -29,6 +36,25 @@ export default function useChatMessages() {
 
   const clearMessages = () => {
     setMessages([]);
+  };
+
+  const sendMessage = (message: string) => {
+    const trimmed = message.trim();
+    if (!trimmed) return;
+
+    addMessage(trimmed, true);
+
+    sendMessageMutation.mutate(trimmed, {
+      onSuccess: (res) => {
+        if (res?.data?.reply) {
+          addMessage(res.data.reply, false);
+        }
+      },
+      onError: (error) => {
+        const description = error instanceof Error ? error.message : 'Terjadi kesalahan saat mengirim pesan.';
+        toast.error('Gagal mengirim pesan', { description });
+      },
+    });
   };
 
   useEffect(() => {
@@ -44,8 +70,10 @@ export default function useChatMessages() {
   return {
     messages,
     addMessage,
+    sendMessage,
     clearMessages,
     defaultMessage: DEFAULT_MESSAGE,
     isLoading,
+    isSending: sendMessageMutation.isPending,
   };
 }
