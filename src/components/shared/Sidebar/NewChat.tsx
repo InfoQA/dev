@@ -11,17 +11,17 @@ export default function NewChat() {
   };
 
   return (
-    <DialogHeader className='text-start'>
+    <DialogHeader className='text-start dark:text-white'>
       <DialogTitle className='font-semibold text-base'>New Chat</DialogTitle>
       <DialogDescription className='text-sm my-2'>New chat means clear chat, are you sure?</DialogDescription>
       <DialogFooter className='flex flex-row justify-end mt-2'>
         <DialogClose asChild>
-          <Button className='rounded-full' variant={'outline'}>
+          <Button className='rounded-full dark:bg-accent/15 dark:hover:text-white' variant={'outline'}>
             Cancel
           </Button>
         </DialogClose>
         <DialogClose asChild>
-          <Button className='rounded-full px-7' onClick={handleConfirm}>
+          <Button className='rounded-full px-7 dark:border' onClick={handleConfirm}>
             Yes
           </Button>
         </DialogClose>

@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/stores/ThemeProvider';
 import { type ReactNode } from 'react';
 
 type LayoutDefaultProps = {
@@ -7,5 +8,9 @@ type LayoutDefaultProps = {
 export default function LayoutDefault(props: LayoutDefaultProps) {
   const { children } = props;
 
-  return <div className={'h-screen overflow-hidden bg-secondary/30'}>{children}</div>;
+  return (
+    <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+      <div className={'h-screen overflow-hidden bg-secondary/30 dark:bg-background'}>{children}</div>
+    </ThemeProvider>
+  );
 }

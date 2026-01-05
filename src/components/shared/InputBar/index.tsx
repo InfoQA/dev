@@ -45,7 +45,7 @@ export default function InputBar() {
 
   return (
     <div className={'absolute w-full flex justify-center bottom-5'}>
-      <div className='shadow-lg w-3/4 lg:w-1/2 flex flex-row justify-center items-end gap-2 bg-primary rounded-4xl p-2'>
+      <div className='shadow-lg w-3/4 lg:w-1/2 flex flex-row justify-center items-end gap-2 bg-primary rounded-4xl p-2 dark:border dark:border-white/35 dark:bg-linear-to-br dark:from-white/10 dark:via-primary/60 dark:to-white/10'>
         <Textarea
           autoFocus
           ref={textareaRef}
@@ -56,11 +56,12 @@ export default function InputBar() {
           onKeyDown={handleKeyDown}
           placeholder='Ada yang ingin ditanyakan?'
           className='placeholder:text-secondary 
-          text-xs lg:text-sm min-h-2.5 bg-primary text-secondary resize-none overflow-hidden
+          text-xs lg:text-sm min-h-2.5 text-secondary resize-none overflow-hidden
           border-none lg:px-2 lg:py-2
-          lg:min-h-10 lg:max-h-[200px]'
+          lg:min-h-10 lg:max-h-[200px] focus-visible:ring-0
+          bg-primary dark:bg-transparent'
         />
-        <Button variant='outline' size='icon' className='size-8 lg:size-9 rounded-full' onClick={handleSendMessage} disabled={!inputValue.trim()}>
+        <Button variant='outline' size='icon' className='size-8 lg:size-9 rounded-full dark:border dark:border-white/55 dark:bg-primary dark:text-white' onClick={handleSendMessage} disabled={!inputValue.trim()}>
           <ArrowUp />
         </Button>
       </div>

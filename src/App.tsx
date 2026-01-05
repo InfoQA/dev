@@ -7,7 +7,7 @@ import NewChat from '@/components/shared/Sidebar/NewChat';
 import useRefreshModal from '@/hooks/useRefreshModal';
 import { useEffect } from 'react';
 import { toast, Toaster } from 'sonner';
-import { ChatProvider } from './stores/chatProvider';
+import { ChatProvider } from './stores/ChatProvider';
 
 function AppContent() {
   const { showModal, setShowModal } = useRefreshModal();
@@ -20,7 +20,7 @@ function AppContent() {
 
   return (
     <LayoutDefault>
-      <Toaster position='top-center' />
+      <Toaster position='top-center' theme='dark' />
       <Sidebar />
       <About />
       <Chat />

@@ -9,6 +9,7 @@ const listDropDown = [
   {
     icon: <Sun />,
     label: "Dark Mode",
+    dialog: "dark-mode",
   },
   {
     icon: <CircleQuestionMarkIcon />,
