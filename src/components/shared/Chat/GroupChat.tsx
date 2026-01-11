@@ -3,7 +3,7 @@ import ChatBubble from '../ChatBubble';
 import ChatBubbleSkeleton from '../ChatBubble/ChatBubbleSkeleton';
 
 export default function GroupChat() {
-  const { messages, defaultMessage, isLoading } = useChatContext();
+  const { messages, isLoading } = useChatContext();
 
   return (
     <>
@@ -15,9 +15,6 @@ export default function GroupChat() {
         </>
       ) : (
         <>
-          {/* default chatnya pertama kali*/}
-          <ChatBubble message={defaultMessage} />
-
           {/* ini chatnya - dari state */}
           {messages.map((msg) => (
             <ChatBubble key={msg.id} message={msg.message} isMe={msg.isMe} />

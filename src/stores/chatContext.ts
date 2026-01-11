@@ -6,7 +6,6 @@ export type ChatContextType = {
   addMessage: (message: string, isMe?: boolean) => void;
   sendMessage: (message: string) => void;
   clearMessages: () => void;
-  defaultMessage: string;
   isLoading: boolean;
   isSending: boolean;
 };
