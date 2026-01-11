@@ -15,11 +15,11 @@ export default function useChatMessages() {
 
   const initHasRunRef = useRef(false);
 
-  const initMessageMutation = useMutation({
+  const { mutate: initChatMutate } = useMutation({
     mutationFn: (message: string) => postChat(message),
   });
 
-  const sendMessageMutation = useMutation({
+  const { mutate: sendChatMutate, isPending: isSending } = useMutation({
     mutationFn: (message: string) => postChat(message),
   });
 
@@ -31,6 +31,23 @@ export default function useChatMessages() {
     };
     setMessages((prev) => [...prev, newMessage]);
   }, []);
+
+  const initializeChat = useCallback(() => {
+    if (initHasRunRef.current) return;
+    initHasRunRef.current = true;
+
+    initChatMutate('__init__', {
+      onSuccess: (res) => {
+        if (res?.data?.reply) {
+          addMessage(res.data.reply, false);
+        }
+      },
+      onError: (error) => {
+        const description = error instanceof Error ? error.message : 'Terjadi kesalahan saat menginisialisasi chat.';
+        toast.error('Gagal menginisialisasi chat', { description });
+      },
+    });
+  }, [addMessage, initChatMutate]);
 
   const clearMessages = () => {
     setMessages([]);
@@ -44,7 +61,7 @@ export default function useChatMessages() {
 
     addMessage(trimmed, true);
 
-    sendMessageMutation.mutate(trimmed, {
+    sendChatMutate(trimmed, {
       onSuccess: (res) => {
         if (res?.data?.reply) {
           addMessage(res.data.reply, false);
@@ -57,23 +74,6 @@ export default function useChatMessages() {
     });
   };
 
-  const initializeChat = useCallback(() => {
-    if (initHasRunRef.current) return;
-    initHasRunRef.current = true;
-
-    initMessageMutation.mutate('__init__', {
-      onSuccess: (res) => {
-        if (res?.data?.reply) {
-          addMessage(res.data.reply, false);
-        }
-      },
-      onError: (error) => {
-        const description = error instanceof Error ? error.message : 'Terjadi kesalahan saat menginisialisasi chat.';
-        toast.error('Gagal menginisialisasi chat', { description });
-      },
-    });
-  }, [initMessageMutation, addMessage]);
-
   useEffect(() => {
     const fetchMessages = async () => {
       setIsLoading(true);
@@ -84,7 +84,8 @@ export default function useChatMessages() {
     };
 
     fetchMessages();
-  }, [initializeChat]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     messages,
@@ -92,6 +93,6 @@ export default function useChatMessages() {
     sendMessage,
     clearMessages,
     isLoading,
-    isSending: sendMessageMutation.isPending,
+    isSending,
   };
 }

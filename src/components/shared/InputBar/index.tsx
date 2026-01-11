@@ -25,6 +25,8 @@ export default function InputBar() {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
     }
+
+    requestAnimationFrame(() => textareaRef.current?.focus());
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -37,6 +39,12 @@ export default function InputBar() {
   useEffect(() => {
     handleInput();
   }, []);
+
+  useEffect(() => {
+    if (!isSending) {
+      textareaRef.current?.focus();
+    }
+  }, [isSending]);
 
   return (
     <div className={'absolute w-full flex justify-center bottom-5'}>
