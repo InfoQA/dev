@@ -1,7 +1,7 @@
-import INFO_APP from '@/components/constants';
 import { DialogAbout } from '@/components/shared/About/DialogAbout.tsx';
 import Modal from '@/components/shared/Modal';
 import { Button } from '@/components/ui/button.tsx';
+import INFO_APP from '@/constants';
 import useIsMobile from '@/hooks/useIsMobile.ts';
 
 export default function About() {

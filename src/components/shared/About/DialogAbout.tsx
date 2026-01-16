@@ -1,5 +1,5 @@
-import INFO_APP from '@/components/constants';
 import { DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.tsx';
+import INFO_APP from '@/constants';
 
 export function DialogAbout() {
   return (

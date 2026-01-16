@@ -1,4 +1,4 @@
-import { API_URL } from '@/components/constants';
+import { API_URL } from '@/constants';
 import { fetchAPI } from '@/utils/fetch';
 
 export type PostChatResponse = {
