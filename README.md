@@ -9,7 +9,6 @@ Front-end repository untuk InfoQA - aplikasi tanya jawab informatif yang memudah
 - **TanStack Query** - Server state management & data fetching
 - **Tailwind CSS** - Utility-first CSS framework
 - **shadcn/ui** - Component library
-- **Zustand** - Client state management
 
 ## Installation
 
